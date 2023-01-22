@@ -1,0 +1,23 @@
+<div class="container">
+    <table class="table table-striped table-bordered" >
+        <thead>
+<tr>
+    <th scope="col">Title</th>
+    <th scope="col">Visibility</th>
+    <th scope="col">Date</th>
+    <th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let res of video | paginate:{ itemsPerPage:6, currentPage : pagination, totalItems : total }">
+    <td>{{res.title}}</td>
+    <td>{{res.visibility}}</td>
+    <td>{{res.date}}</td>
+    <td><a routerLink="/video/{{res._id}}" class="btn btn-warning my-1"><i class="fa fa-eye"></i></a><a routerLink="/videos/edit/{{res._id}}" class="btn btn-primary my-1"><i class="fa fa-pen"></i></a><a (click)="delete(res._id)" class="btn btn-danger my-1"><i class="fa fa-trash-alt"></i></a></td>
+</tr>
+</tbody>
+    </table>
+    <div class="mt-8 py-5 flex justify-center items-center">
+        <pagination-controls (pageChange)="pagination =$event"></pagination-controls>
+    </div>
+</div>

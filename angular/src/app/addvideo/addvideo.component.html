@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+          <p class="h3 fw-bold text-danger">  Add video </p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <form (submit)="add()">
+                <div class="mb-2">
+                    <input [(ngModel)]="video.title" type="text" class="form-control" placeholder="Title" name="title" required>
+                </div>
+                <div class="mb-2">
+                    <input [(ngModel)]="video.url"  type="text" class="form-control" placeholder="URL" name="url" required>
+                </div>
+                <div class="mb-2">
+                    <input [(ngModel)]="video.visibility" type="radio" name="visibility" value="Private">Private
+                    <input [(ngModel)]="video.visibility" type="radio" name="visibility" value="Public">Public
+                </div>
+                <div class="mb-2">
+                    <input type="submit" value="Save" class="btn btn-primary">
+                    <input type="reset" value="Reset" class="btn btn-danger">
+                </div>
+                <div *ngIf="succ">Ajouter avec succes</div>
+            </form>
+        </div>
+    </div>
+</div>
